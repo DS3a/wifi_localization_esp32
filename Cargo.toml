@@ -1,0 +1,25 @@
+[package]
+name = "indoor-localization-esp32"
+version = "0.1.0"
+authors = ["DS3a <33351122+DS3a@users.noreply.github.com>"]
+edition = "2021"
+resolver = "2"
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true # Symbols are nice and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+pio = ["esp-idf-sys/pio"]
+
+[dependencies]
+esp-idf-sys = { version = "0.31.11", features = ["binstart"] }
+esp-idf-svc = "*"
+esp-idf-hal = "*"
+embedded-svc = "*"
+
+[build-dependencies]
+embuild = "0.30.4"
